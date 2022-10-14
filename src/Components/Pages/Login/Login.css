@@ -1,0 +1,120 @@
+.login-page-flexbox {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.main-content-login {
+  background-color: aliceblue;
+  width: 60%;
+  height: 100%;
+}
+
+.form-title-login {
+  margin-top: 250px;
+  font-size: 55px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.login-form {
+  margin: auto;
+  margin-top: 50px;
+  width: 500px;
+}
+
+.form-subtitle-login {
+  font-size: 22px;
+  text-align: center;
+}
+
+.login-email-field {
+  height: 50px;
+  border-radius: 15px;
+}
+
+.login-password-field {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  height: 50px;
+}
+
+.login-button {
+  margin-top: 15px;
+  width: 190px;
+  height: 47px;
+  font-size: 19px;
+  border-width: 0px;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  border-radius: 50px;
+  margin-left: 156px;
+}
+
+.signup-link {
+  display: block;
+  margin-top: 20px;
+  text-decoration: underline;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.sidebar-signup {
+  width: 40%;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.sidebar-signup-button {
+  margin-top: 20px;
+  width: 190px;
+  height: 47px;
+  font-size: 19px;
+  color: black;
+  font-weight: 500;
+  border-width: 0px;
+  background: white;
+  border-radius: 50px;
+  margin-left: 290px;
+}
+
+.sidebar-signup-title {
+  margin-top: 325px;
+  font-size: 55px;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+}
+
+.sidebar-signup-text {
+  font-size: 22px;
+  color: white;
+  text-align: center;
+}
+
+.error-message-login {
+  color: rgb(192, 7, 7);
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 15px;
+  text-align: center;
+}

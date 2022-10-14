@@ -1,0 +1,12 @@
+.home-page {
+  background-color: #4d426d;
+  height: 100vh;
+}
+
+.home-page-main-container {
+  display: flex;
+  width: 70%;
+  height: 85%;
+  margin: auto;
+  margin-top: 40px;
+}

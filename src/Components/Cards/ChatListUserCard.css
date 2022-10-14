@@ -1,0 +1,41 @@
+.chatlist-usercard-flex {
+  display: flex;
+  max-height: 75px;
+  margin-bottom: 10px;
+}
+
+.chatlist-usercard-image-container {
+  height: 80px;
+  width: 80px;
+}
+
+.chatlist-usercard-image-container img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: #5c4f82;
+}
+
+.chatlist-usercard-name-last-message {
+  margin-left: -10px;
+}
+
+.chatlist-usercard-name {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.chatlist-usercard-lastmessage {
+  margin-top: -15px;
+  width: 250px;
+  height: 30px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.chatlist-usercard-line {
+  margin-top: 7px;
+  border: 1px solid rgb(188, 189, 190);
+}
