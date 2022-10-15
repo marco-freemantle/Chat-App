@@ -92,11 +92,13 @@ function Login() {
           Signup now to discover our amazing messaging service!
         </p>
         <p className="sidebar-signup-text">It's completely free!</p>
-        <Link to="/signup">
-          <Button variant="primary" className="sidebar-signup-button">
-            Sign Up
-          </Button>
-        </Link>
+        <div className="sidebar-signup-button-container">
+          <Link to="/signup">
+            <Button variant="primary" className="sidebar-signup-button">
+              Sign Up
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );

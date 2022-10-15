@@ -140,11 +140,13 @@ function Signup() {
         <p className="sidebar-signup-text">
           Click below to sign in to your Chat-App account
         </p>
-        <Link to="/login">
-          <Button variant="primary" className="sidebar-signup-button">
-            Sign in
-          </Button>
-        </Link>
+        <div className="sidebar-signup-button-container">
+          <Link to="/login">
+            <Button variant="primary" className="sidebar-signup-button">
+              Sign in
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
