@@ -4,7 +4,7 @@
   flex-direction: column;
   margin-left: 30px;
   height: 100%;
-  width: 30%;
+  min-width: 420px;
 }
 
 .home-page-search-input {
@@ -47,7 +47,7 @@
 
 .chats-scrollbox {
   margin-top: -10px;
-  height: 85%;
+  height: 84%;
   overflow-y: auto;
 }
 

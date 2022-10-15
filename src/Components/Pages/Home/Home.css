@@ -5,8 +5,34 @@
 
 .home-page-main-container {
   display: flex;
-  width: 70%;
+  width: 75%;
   height: 85%;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 30px;
+}
+
+/* Small devices (screens, 992px and down) */
+@media only screen and (max-width: 990px) {
+  .home-page-main-container {
+    width: 100%;
+    max-height: 85%;
+    min-width: 100%;
+    margin-left: -25px;
+  }
+}
+
+/* Small devices (screens, 992px and down) */
+@media only screen and (max-width: 1100px) {
+  .home-page-main-container {
+    width: 100%;
+    height: 87%;
+    margin-top: 20px;
+  }
+}
+
+/* Small devices (screens, 992px and down) */
+@media only screen and (max-width: 1500px) {
+  .home-page-main-container {
+    width: 90%;
+  }
 }

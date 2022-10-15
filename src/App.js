@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import * as utilities from "./Utilities/FireStoreUtilities.js";
+import * as utilities from "./Utilities/FireStoreUtilities";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Pages/Home/Home";
 import Signup from "./Components/Pages/Signup/Signup";
@@ -43,7 +43,7 @@ function App() {
           //If user is not in database
           if (!userExists) {
             //Adds user to Firestore database
-            utilities.addUser(user.uid, user.displayName);
+            utilities.addUser(user.uid);
           }
         });
 

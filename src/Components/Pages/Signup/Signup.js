@@ -9,7 +9,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import React, { useState } from "react";
-import * as utilities from "../../../Utilities/FireStoreUtilities.js";
+import * as utilities from "../../../Utilities/FireStoreUtilities";
 
 /**
  * @returns The user signup page

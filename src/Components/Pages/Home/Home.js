@@ -1,6 +1,7 @@
 import "./Home.css";
 import NavBar from "../../Navigation/NavBar";
-import SideBar from "../../SideBar";
+import SideBar from "../../SideBar/SideBar";
+import ChatBox from "../../ChatBox/ChatBox";
 
 function Home() {
   return (
@@ -8,6 +9,8 @@ function Home() {
       <NavBar />
       <div className="home-page-main-container">
         <SideBar />
+
+        <ChatBox />
       </div>
     </div>
   );

@@ -1,0 +1,81 @@
+.chatbox {
+  padding: 3%;
+  height: 44%;
+  width: 68%;
+  border-radius: 30px;
+  background-color: #5c4f82;
+  margin-left: auto;
+  margin-right: auto;
+  color: aliceblue;
+  height: 99%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbox-title {
+  font-size: 22px;
+  margin-left: 15px;
+  margin-top: 10px;
+  color: rgb(212, 212, 212);
+}
+
+.chatbox-scrollbox {
+  margin-top: 10px;
+  height: 83%;
+  overflow-y: auto;
+}
+
+.chatbox-scrollbox::-webkit-scrollbar {
+  width: 1em;
+}
+
+.chatbox-scrollbox::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+}
+
+.chatbox-scrollbox::-webkit-scrollbar-thumb {
+  background-color: #4d426d;
+  border-radius: 15px;
+}
+
+.chatbox-input {
+  width: 100%;
+  padding: 1.5%;
+  border-radius: 50px;
+  border-style: solid;
+  border-color: bisque;
+  background-color: bisque;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -25px;
+  margin-top: 15px;
+  color: black;
+}
+
+.chatbox-input:focus {
+  outline: none;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 30px;
+  border-color: bisque;
+  background-color: bisque;
+}
+
+.input-and-send-flexbox {
+  display: flex;
+}
+
+.send-message-button {
+  margin-bottom: -25px;
+  margin-top: 22px;
+  margin-left: 10px;
+}
+
+/* Small devices (screens, 992px and down) */
+@media only screen and (max-width: 990px) {
+  .input-and-send-flexbox {
+    margin-bottom: 10px;
+  }
+}
