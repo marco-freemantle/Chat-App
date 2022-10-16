@@ -1,8 +1,18 @@
 import "./UserSearchModal.css";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import * as utilities from "../../Utilities/FireStoreUtilities";
+import React, { useState } from "react";
+import FoundUserCard from "../Cards/FoundUserCard";
 
 function UserSearchModal(props) {
+  const [userFound, setUserFound] = useState(false);
+
+  function searchForUser(event) {
+    utilities.searchForUser(event.target.value).then((user) => {
+      setUserFound(user);
+    });
+  }
+
   return (
     <Modal
       {...props}
@@ -20,7 +30,16 @@ function UserSearchModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="user-search-modal-body">
-        <input placeholder="Search" className="user-search-modal-input"></input>
+        <input
+          placeholder="Search"
+          className="user-search-modal-input"
+          onChange={searchForUser}
+        ></input>
+        {userFound ? (
+          <FoundUserCard userName={userFound.displayName} bio={userFound.bio} />
+        ) : (
+          <div></div>
+        )}
       </Modal.Body>
     </Modal>
   );

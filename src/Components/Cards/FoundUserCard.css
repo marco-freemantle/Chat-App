@@ -1,0 +1,39 @@
+.found-user-card-container {
+  margin: auto;
+  width: 500px;
+  height: 150px;
+  margin-top: 30px;
+  border-style: solid;
+  border-radius: 30px;
+  border-color: #7b66bb;
+  background-color: #7b66bb;
+}
+
+.found-user-title {
+  text-align: center;
+  font-size: 30px;
+  color: antiquewhite;
+  margin-bottom: -1px;
+}
+
+.found-user-card-image-container {
+  height: 90px;
+  width: 90px;
+  margin-left: 20px;
+}
+
+.found-user-card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: #7b66bb;
+}
+
+.bio-and-buttons-container {
+  margin-left: 130px;
+  margin-top: -75px;
+  color: antiquewhite;
+  font-size: 17px;
+}

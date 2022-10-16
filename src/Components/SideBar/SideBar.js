@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import "./SideBar.css";
 import ChatListUserCard from "../Cards/ChatListUserCard.js";
-import * as utilities from "../../Utilities/FireStoreUtilities";
 import UserSearchModal from "../Modals/UserSearchModal";
 import Button from "react-bootstrap/Button";
 import { FaSearch } from "react-icons/fa";
 
 function SideBar() {
   const [modalShow, setModalShow] = useState(false);
-
-  function searchForUser(event) {
-    console.log(event.target.value);
-    utilities.searchForUser(event.target.value);
-  }
 
   return (
     <div className="sidebar">

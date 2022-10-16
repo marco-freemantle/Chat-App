@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Pages/Home/Home";
 import Signup from "./Components/Pages/Signup/Signup";
 import Login from "./Components/Pages/Login/Login";
+import Account from "./Components/Pages/Account/Account";
 
 //Firebase configuration
 const firebaseConfig = {
@@ -63,6 +64,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
     );
   } else {

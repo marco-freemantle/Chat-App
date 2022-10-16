@@ -13,3 +13,16 @@
 .user-search-modal-footer {
   background-color: #5c4f82;
 }
+
+.user-search-modal-input {
+  width: 50%;
+  height: 40px;
+  border-radius: 30px;
+  padding: 2%;
+  border-width: 0px;
+  border-color: #5c4f82;
+}
+
+.user-search-modal-input:focus {
+  outline: none;
+}
