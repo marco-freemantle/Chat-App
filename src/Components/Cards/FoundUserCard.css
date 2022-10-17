@@ -32,8 +32,28 @@
 }
 
 .bio-and-buttons-container {
-  margin-left: 130px;
+  margin-left: 140px;
   margin-top: -75px;
   color: antiquewhite;
   font-size: 17px;
+}
+
+.user-card-chat-button {
+  border-radius: 30px;
+  height: 40px;
+  width: 125px;
+  margin-left: -10px;
+  border-color: #7b66bb;
+  border-width: 2px;
+  background-color: #cbc0eb;
+}
+
+.user-card-profile-button {
+  border-radius: 30px;
+  height: 40px;
+  width: 125px;
+  margin-left: 30px;
+  border-color: #7b66bb;
+  border-width: 2px;
+  background-color: #cbc0eb;
 }

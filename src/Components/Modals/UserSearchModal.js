@@ -36,7 +36,13 @@ function UserSearchModal(props) {
           onChange={searchForUser}
         ></input>
         {userFound ? (
-          <FoundUserCard userName={userFound.displayName} bio={userFound.bio} />
+          <FoundUserCard
+            userName={userFound.displayName}
+            bio={userFound.bio}
+            userId={userFound.userId}
+            startNewChat={props.onHide}
+            pictureURL={userFound.displayPicURL}
+          />
         ) : (
           <div></div>
         )}

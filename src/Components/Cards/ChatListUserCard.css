@@ -25,10 +25,17 @@
 .chatlist-usercard-name {
   font-size: 18px;
   margin-top: 5px;
+  display: inline;
+}
+
+.remove-contact-button {
+  display: inline;
+  margin-bottom: 5px;
+  float: right;
+  margin-top: 3px;
 }
 
 .chatlist-usercard-lastmessage {
-  margin-top: -15px;
   width: 250px;
   height: 30px;
   overflow-x: hidden;

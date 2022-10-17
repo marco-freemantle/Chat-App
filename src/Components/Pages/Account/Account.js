@@ -24,6 +24,11 @@ function Account() {
       setUpdatedBio(user.bio);
       setUpdatedDisplayName(auth.currentUser.displayName);
     });
+
+    utilities.changeDisplayPicURL(
+      auth.currentUser.uid,
+      auth.currentUser.photoURL
+    );
   }, []);
 
   function toggleEnableButton(bool) {

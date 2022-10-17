@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SideBar.css";
 import ChatListUserCard from "../Cards/ChatListUserCard.js";
 import UserSearchModal from "../Modals/UserSearchModal";
 import Button from "react-bootstrap/Button";
 import { FaSearch } from "react-icons/fa";
+import * as utilities from "../../Utilities/FireStoreUtilities";
+import { getAuth } from "firebase/auth";
+import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 
 function SideBar() {
   const [modalShow, setModalShow] = useState(false);
+  const [userContactList, setUserContactList] = useState([]);
+  const [chattingWith, setChattingWith] = useState();
+
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsub = onSnapshot(
+      doc(getFirestore(), "users", auth.currentUser.uid),
+      (doc) => {
+        setUserContactList(doc.data().contactList);
+      }
+    );
+  }, []);
 
   return (
     <div className="sidebar">
@@ -21,30 +37,26 @@ function SideBar() {
         </div>
       </Button>
 
-      <UserSearchModal show={modalShow} onHide={() => setModalShow(false)} />
+      <UserSearchModal
+        show={modalShow}
+        //onHide takes in a userId we want to open chat for (undefined if model was closed and not chat was opened)
+        onHide={() => {
+          setModalShow(false);
+        }}
+      />
       <div className="chats-section">
         <p className="chat-lists-title">Private Chats</p>
         <hr className="chat-lists-title-line" />
         <div className="chats-scrollbox">
-          <ChatListUserCard />
-          <ChatListUserCard />
-          <ChatListUserCard />
-          <ChatListUserCard />
-          <ChatListUserCard />
-          <ChatListUserCard />
+          {userContactList.map((user) => (
+            <ChatListUserCard userId={user.contactId} key={Math.random()} />
+          ))}
         </div>
       </div>
       <div className="chats-section">
         <p className="chat-lists-title">Group Chats</p>
         <hr className="chat-lists-title-line" />
-        <div className="chats-scrollbox">
-          <ChatListUserCard />
-          <ChatListUserCard />
-          <ChatListUserCard />
-          <ChatListUserCard />
-          <ChatListUserCard />
-          <ChatListUserCard />
-        </div>
+        <div className="chats-scrollbox"></div>
       </div>
     </div>
   );

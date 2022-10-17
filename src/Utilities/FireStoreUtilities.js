@@ -30,8 +30,9 @@ export async function addUser(_userId) {
   await setDoc(doc(getFirestore(), "users", _userId), {
     userId: _userId,
     displayName: auth.currentUser.displayName,
-    friendsList: [],
+    contactList: [],
     bio: "",
+    displayPicURL: "",
   });
 }
 
@@ -134,6 +135,17 @@ export async function changeBio(_userId, _bio) {
 }
 
 /**
+ * Change display picture UrL
+ * @param _userId The ID of the user to change display pic url for
+ * @param _URL the url of the new display picture
+ */
+export async function changeDisplayPicURL(_userId, _URL) {
+  const userRef = doc(getFirestore(), "users", _userId);
+
+  await updateDoc(userRef, { displayPicURL: _URL });
+}
+
+/**
  * Change display name in firestore
  * @param _userId The ID of the user to change name for
  * @param _name The displayname to change to
@@ -142,6 +154,57 @@ export async function changeDisplayName(_userId, _name) {
   const userRef = doc(getFirestore(), "users", _userId);
 
   await updateDoc(userRef, { displayName: _name });
+}
+
+/**
+ * Add user to contactlist in Firestore
+ * @param _userId The user id to add contact for
+ * @param _contactId The contact user id to add
+ * @param _contactDisplayName The displayname of the new contact
+ */
+export async function addContact(
+  _userId,
+  _contactId,
+  _contactDisplayName,
+  _picURL
+) {
+  const userRef = doc(getFirestore(), "users", _userId);
+  const docSnap = await getDoc(userRef);
+
+  const newContact = {
+    contactId: _contactId,
+    contactDisplayName: _contactDisplayName,
+    picURL: _picURL,
+  };
+
+  //Only add contact if it doesn't already exist
+  let canAdd = true;
+  docSnap.data().contactList.forEach(async (element) => {
+    if (element.contactId === _contactId) {
+      canAdd = false;
+    }
+  });
+
+  if (canAdd) {
+    const newContactList = [...docSnap.data().contactList, newContact];
+    await updateDoc(userRef, { contactList: newContactList });
+  }
+}
+
+/**
+ * Remove user from contactlist in Firestore
+ * @param _userId The user id to remove contact for
+ * @param _contactId The user to remove
+ */
+export async function removeContact(_userId, _contactId) {
+  const userRef = doc(getFirestore(), "users", _userId);
+  const docSnap = await getDoc(userRef);
+
+  const newContactList = docSnap
+    .data()
+    .contactList.filter((contact) => contact.contactId !== _contactId);
+
+  await updateDoc(userRef, { contactList: newContactList });
 }
 
 /**
@@ -196,7 +259,11 @@ export async function changeProfilePicture(_userId, _image) {
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
         updateProfile(auth.currentUser, {
           photoURL: downloadURL,
-        }).then(window.location.reload());
+        }).then(() => {
+          changeDisplayPicURL(auth.currentUser.uid, downloadURL).then(
+            window.location.reload()
+          );
+        });
       });
     }
   );
