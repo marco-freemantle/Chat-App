@@ -40,7 +40,7 @@ function UserSearchModal(props) {
             userName={userFound.displayName}
             bio={userFound.bio}
             userId={userFound.userId}
-            startNewChat={props.onHide}
+            hideModal={props.onHide}
             pictureURL={userFound.displayPicURL}
           />
         ) : (

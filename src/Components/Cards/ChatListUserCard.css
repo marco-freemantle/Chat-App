@@ -2,11 +2,32 @@
   display: flex;
   max-height: 75px;
   margin-bottom: 10px;
+  justify-content: space-between;
+  margin-left: 5px;
+}
+
+.chatlist-usercard-flex:hover {
+  background-color: #74689e;
+}
+
+.name-and-image-button:hover {
+  background-color: #74689e;
 }
 
 .chatlist-usercard-image-container {
   height: 80px;
   width: 80px;
+}
+
+.name-and-image-button {
+  display: flex;
+  width: 100%;
+  background-color: #5c4f8200;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #5c4f8200;
+  border-radius: 7px;
+  margin-left: -15px;
 }
 
 .chatlist-usercard-image-container img {
@@ -16,33 +37,31 @@
   border-style: solid;
   border-radius: 50%;
   border-color: #5c4f82;
-}
-
-.chatlist-usercard-name-last-message {
-  margin-left: -10px;
-}
-
-.chatlist-usercard-name {
-  font-size: 18px;
-  margin-top: 5px;
-  display: inline;
-}
-
-.remove-contact-button {
-  display: inline;
-  margin-bottom: 5px;
-  float: right;
   margin-top: 3px;
 }
 
-.chatlist-usercard-lastmessage {
-  width: 250px;
-  height: 30px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+.remove-contact-button {
+  float: right;
+  margin-top: 25px;
+  margin-right: 10px;
 }
 
 .chatlist-usercard-line {
-  margin-top: 7px;
-  border: 1px solid rgb(188, 189, 190);
+  margin-top: -5px;
+  color: rgb(255, 255, 255);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.chatlist-name {
+  font-size: 18px;
+  margin-top: 5px;
+  color: antiquewhite;
+  text-align: left;
+}
+
+.chatlist-lastmessage {
+  font-size: 16px;
+  color: rgb(190, 189, 186);
+  margin-top: -8px;
 }

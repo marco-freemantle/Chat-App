@@ -16,8 +16,15 @@ function FoundUserCard(props) {
         props.pictureURL
       )
       .then(() => {
-        //Close model and add new contact locally
-        props.startNewChat(props.userId);
+        utilities
+          .getConversation(auth.currentUser.uid, props.userId)
+          .then((data) => {
+            if (!data) {
+              utilities.createConversation(auth.currentUser.uid, props.userId);
+            }
+          });
+        //Close model
+        props.hideModal();
       });
   }
 

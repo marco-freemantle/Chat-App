@@ -1,6 +1,5 @@
 .chatbox {
   padding: 3%;
-  height: 44%;
   width: 68%;
   border-radius: 30px;
   background-color: #5c4f82;
@@ -22,8 +21,8 @@
 }
 
 .chatbox-scrollbox {
-  margin-top: 10px;
-  height: 83%;
+  margin-top: 0px;
+  height: 100%;
   overflow-y: auto;
 }
 
@@ -64,19 +63,41 @@
   background-color: bisque;
 }
 
-.input-and-send-flexbox {
-  display: flex;
-}
-
-.send-message-button {
-  margin-bottom: -25px;
-  margin-top: 22px;
-  margin-left: 10px;
-}
-
 /* Small devices (screens, 992px and down) */
 @media only screen and (max-width: 990px) {
   .input-and-send-flexbox {
     margin-bottom: 10px;
   }
+}
+
+.message-form-flexbox {
+  display: flex;
+  width: 100%;
+}
+
+.message-input-group {
+  width: 100%;
+  margin-top: 25px;
+  border-radius: 15px;
+}
+
+.message-input {
+  width: 100%;
+  padding: 1.5%;
+  border-radius: 50px;
+  border-style: solid;
+  border-color: bisque;
+  background-color: bisque;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -25px;
+  margin-top: -15px;
+  color: black;
+}
+
+.message-input:focus {
+  outline: none;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #4a3a80;
 }

@@ -4,14 +4,12 @@ import ChatListUserCard from "../Cards/ChatListUserCard.js";
 import UserSearchModal from "../Modals/UserSearchModal";
 import Button from "react-bootstrap/Button";
 import { FaSearch } from "react-icons/fa";
-import * as utilities from "../../Utilities/FireStoreUtilities";
 import { getAuth } from "firebase/auth";
 import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 
-function SideBar() {
+function SideBar(props) {
   const [modalShow, setModalShow] = useState(false);
   const [userContactList, setUserContactList] = useState([]);
-  const [chattingWith, setChattingWith] = useState();
 
   const auth = getAuth();
 
@@ -49,7 +47,11 @@ function SideBar() {
         <hr className="chat-lists-title-line" />
         <div className="chats-scrollbox">
           {userContactList.map((user) => (
-            <ChatListUserCard userId={user.contactId} key={Math.random()} />
+            <ChatListUserCard
+              userId={user.contactId}
+              key={Math.random()}
+              setChattingWith={props.setChattingWith}
+            />
           ))}
         </div>
       </div>
