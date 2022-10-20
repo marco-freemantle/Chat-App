@@ -102,7 +102,9 @@ export async function deleteUser(_userId, email, password) {
   signInWithEmailAndPassword(auth, email, password).then(() => {
     //Reauthenticated, delete user account
     deleteDoc(doc(getFirestore(), "users", _userId)).then(() => {
-      user.delete().then();
+      user.delete().then(() => {
+        window.location = "/login";
+      });
     });
   });
 }

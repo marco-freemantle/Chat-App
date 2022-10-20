@@ -7,10 +7,25 @@ import { getAuth } from "firebase/auth";
 function ChatListUserCard(props) {
   const [user, setUser] = useState();
   const [showRemoveButton, setShowRemoveButton] = useState(false);
+  const [lastMessage, setLastMessage] = useState("Send a message!...");
 
   useEffect(() => {
     utilities.getUserDataFromUserId(props.userId).then((user) => {
       setUser(user);
+      setLastMessage("Click here to send a message!");
+      utilities
+        .getConversation(getAuth().currentUser.uid, props.userId)
+        .then((convo) => {
+          if (!convo) return;
+          let last = convo.messages.slice(-1);
+          if (!last[0]) return;
+
+          if (last[0].message.length > 25) {
+            setLastMessage(last[0].message.substring(0, 25) + "...");
+          } else {
+            setLastMessage(last[0].message);
+          }
+        });
     });
   }, []);
 
@@ -26,10 +41,6 @@ function ChatListUserCard(props) {
     setShowRemoveButton(bool);
   }
 
-  let lastMessage = "Hola! What are your plans this evening";
-  if (lastMessage.length > 25) {
-    lastMessage = lastMessage.substring(0, 28) + "...";
-  }
   if (user) {
     return (
       <div
@@ -39,12 +50,19 @@ function ChatListUserCard(props) {
       >
         <button className="name-and-image-button" onClick={openChat}>
           <div className="chatlist-usercard-image-container">
-            <img src={user.displayPicURL} alt={"profile pic"} />
+            <img
+              src={
+                user.displayPicURL === "" || user.displayPicURL === null
+                  ? require("../../face.jpg")
+                  : user.displayPicURL
+              }
+              alt={"profile pic"}
+            />
+            <hr className="chatlist-usercard-line" />
           </div>
           <div className="name-and-message-container">
             <p className="chatlist-name">{user.displayName}</p>
             <p className="chatlist-lastmessage">{lastMessage}</p>
-            <hr className="chatlist-usercard-line" />
           </div>
         </button>
 

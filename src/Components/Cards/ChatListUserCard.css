@@ -47,7 +47,9 @@
 }
 
 .chatlist-usercard-line {
-  margin-top: -5px;
+  width: 440%;
+  margin-top: -1px;
+  margin-top: 9px;
   color: rgb(255, 255, 255);
   border-style: solid;
   border-width: 1px;

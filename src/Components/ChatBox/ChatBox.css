@@ -101,3 +101,12 @@
   border-width: 3px;
   border-color: #4a3a80;
 }
+
+.no-chat-text {
+  text-align: center;
+  font-size: 25px;
+  max-width: 550px;
+  margin: auto;
+  margin-top: 250px;
+  color: rgb(201, 198, 194);
+}

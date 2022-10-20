@@ -34,7 +34,7 @@ function FoundUserCard(props) {
       <div className="found-user-card-image-container">
         <img
           src={
-            auth.currentUser.photoURL === null
+            props.pictureURL === "" || props.pictureURL === null
               ? require("../../face.jpg")
               : props.pictureURL
           }
@@ -46,8 +46,6 @@ function FoundUserCard(props) {
         <button className="user-card-chat-button" onClick={startNewChat}>
           Open Chat
         </button>
-
-        <button className="user-card-profile-button">Open Profile</button>
       </div>
     </div>
   );

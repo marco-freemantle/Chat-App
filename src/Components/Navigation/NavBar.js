@@ -18,16 +18,13 @@ function NavBar() {
           <Nav className="me-auto"></Nav>
           <Nav>
             <Link to="/" className="navigation-link">
-              <p>Home</p>
-            </Link>
-            <Link to="/groups" className="navigation-link">
-              <p>Groups</p>
+              <p className="nav-text">Home</p>
             </Link>
             <Link to="/account" className="navigation-link">
-              <p>Account</p>
+              <p className="nav-text">Account</p>
             </Link>
             <Link to="/login" className="navigation-link">
-              <p>Logout</p>
+              <p className="nav-text">Logout</p>
             </Link>
           </Nav>
         </Navbar.Collapse>

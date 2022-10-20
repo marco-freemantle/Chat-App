@@ -39,6 +39,14 @@ function ChatBox(props) {
       });
   }, [props.chattingWith]);
 
+  useEffect(() => {
+    if (userData && messageList) {
+      document.getElementById("formMessage").value = "";
+      let scrollBox = document.getElementById("chat-scroll-box");
+      scrollBox.scrollTop = 10000000;
+    }
+  }, [messageList]);
+
   function sendMessage(event) {
     event.preventDefault();
 
@@ -48,7 +56,10 @@ function ChatBox(props) {
       userData.userId,
       typedMessage
     );
+  }
 
+  function fakeSubmit(event) {
+    event.preventDefault();
     document.getElementById("formMessage").value = "";
   }
 
@@ -59,7 +70,7 @@ function ChatBox(props) {
           You are chatting with {userData.displayName}!
         </p>
         <hr className="chat-lists-title-line" />
-        <div className="chatbox-scrollbox">
+        <div className="chatbox-scrollbox" id="chat-scroll-box">
           {messageList.map((message) => (
             <Message
               message={message.message}
@@ -77,6 +88,7 @@ function ChatBox(props) {
                 placeholder="Message"
                 onChange={(e) => setTypedMessage(e.target.value)}
                 bsPrefix="message-input"
+                autoComplete="off"
               />
             </Form.Group>
           </Form>
@@ -88,15 +100,20 @@ function ChatBox(props) {
       <div className="chatbox">
         <p className="chatbox-title">Start chatting!</p>
         <hr className="chat-lists-title-line" />
-        <div className="chatbox-scrollbox"></div>
+        <div className="chatbox-scrollbox">
+          <p className="no-chat-text">
+            Open a chat in the conversations column or start a new conversation
+            by searching for a friend!
+          </p>
+        </div>
         <div className="input-and-send-flexbox">
-          <Form onSubmit={sendMessage} className="message-form-flexbox">
+          <Form onSubmit={fakeSubmit} className="message-form-flexbox">
             <Form.Group controlId="formMessage" className="message-input-group">
               <Form.Control
                 type="text"
                 placeholder="Message"
-                onChange={(e) => setTypedMessage(e.target.value)}
                 bsPrefix="message-input"
+                autoComplete="off"
               />
             </Form.Group>
           </Form>

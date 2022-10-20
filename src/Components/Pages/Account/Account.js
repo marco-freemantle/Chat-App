@@ -13,6 +13,9 @@ function Account() {
   const [updatedBio, setUpdatedBio] = useState("");
   const [canSaveChanges, setCanSaveChanges] = useState(false);
 
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
   const auth = getAuth();
 
   //Get user account info
@@ -44,7 +47,7 @@ function Account() {
       //Change displayname in firestore
       utilities
         .changeDisplayName(auth.currentUser.uid, updatedDisplayName)
-        .then((e) => {
+        .then(() => {
           setDisplayName(updatedDisplayName);
           toggleEnableButton(false);
         });
@@ -54,6 +57,12 @@ function Account() {
 
   function handlePictureUpload(event) {
     utilities.changeProfilePicture(auth.currentUser.uid, event.target.files[0]);
+  }
+
+  function deleteUser(event) {
+    event.preventDefault();
+    const auth = getAuth();
+    utilities.deleteUser(auth.currentUser.uid, email, password);
   }
 
   return (
@@ -90,7 +99,8 @@ function Account() {
                 Display Name
               </Form.Label>
               <Form.Control
-                maxLength={20}
+                minLength={4}
+                maxLength={12}
                 type="text"
                 placeholder={displayName}
                 id="name-input"
@@ -126,6 +136,34 @@ function Account() {
               </Button>
             </Form>
           </div>
+        </div>
+
+        <div className="delete-account-section">
+          <h2 className="delete-account-section-title">Delete Account</h2>
+          <Form onSubmit={deleteUser}>
+            <Form.Control
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={"Enter your email"}
+              id="email"
+              className="delete-account-form-field"
+            />
+            <Form.Control
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder={"Enter your password"}
+              className="delete-account-form-field"
+              id="password"
+            />
+            <br />
+            <Button
+              variant="primary"
+              type="submit"
+              className="delete-account-button"
+            >
+              Delete Account
+            </Button>
+          </Form>
         </div>
       </div>
     </div>

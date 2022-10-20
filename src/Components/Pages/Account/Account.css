@@ -10,19 +10,21 @@
   margin-top: 30px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .account-page-title {
   margin: auto;
   margin-top: 2%;
   color: antiquewhite;
+  margin-bottom: 80px;
 }
 
 .account-page-section {
   border-style: solid;
   height: 250px;
   width: 500px;
-  margin: auto;
+  margin-bottom: 125px;
   padding: 3%;
   border-radius: 30px;
   background-color: #5c4f82;
@@ -72,4 +74,35 @@
 .profile-picture-select {
   width: 105px;
   margin-left: 10px;
+}
+
+.delete-account-section {
+  border-style: solid;
+  height: 250px;
+  width: 500px;
+  margin-bottom: 125px;
+  padding: 1%;
+  border-radius: 30px;
+  background-color: #5c4f82;
+  border-color: #5c4f82;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.delete-account-form-field {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.delete-account-button {
+  margin-top: -55px;
+  margin-left: 155px;
+  width: 35%;
+}
+
+.delete-account-section-title {
+  margin-bottom: 20px;
+  color: rgb(214, 76, 104);
+  text-align: center;
 }

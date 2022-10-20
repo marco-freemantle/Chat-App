@@ -43,7 +43,7 @@ function SideBar(props) {
         }}
       />
       <div className="chats-section">
-        <p className="chat-lists-title">Private Chats</p>
+        <p className="chat-lists-title">Your Conversations</p>
         <hr className="chat-lists-title-line" />
         <div className="chats-scrollbox">
           {userContactList.map((user) => (
@@ -54,11 +54,6 @@ function SideBar(props) {
             />
           ))}
         </div>
-      </div>
-      <div className="chats-section">
-        <p className="chat-lists-title">Group Chats</p>
-        <hr className="chat-lists-title-line" />
-        <div className="chats-scrollbox"></div>
       </div>
     </div>
   );

@@ -41,11 +41,14 @@
 .user-card-chat-button {
   border-radius: 30px;
   height: 40px;
-  width: 125px;
-  margin-left: -10px;
-  border-color: #7b66bb;
+  width: 200px;
+  color: antiquewhite;
+  margin: auto;
+  margin-left: 15px;
   border-width: 2px;
-  background-color: #cbc0eb;
+  border-color: #c0bcca;
+  border-style: solid;
+  background-color: #6248b1;
 }
 
 .user-card-profile-button {
