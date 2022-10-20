@@ -45,7 +45,7 @@ function Signup() {
                 .addUser(auth.currentUser.uid, auth.currentUser.displayName)
                 .then(() => {
                   //Switches to home screen upon account creation
-                  window.location.pathname = "/";
+                  window.location.pathname = "/Chat-App";
                 });
             });
           })

@@ -38,7 +38,7 @@ function Login() {
         signInWithEmailAndPassword(auth, email, password)
           .then(() => {
             //Should use <Link/> instead
-            window.location.pathname = "/";
+            window.location.pathname = "/Chat-App";
           })
           .catch(() => {
             setLoginError(true);
