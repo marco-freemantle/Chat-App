@@ -21,7 +21,7 @@
 }
 
 .main-content {
-  background-color: aliceblue;
+  background-color: #4d426d;
   width: 60%;
   height: 100%;
 }
@@ -60,7 +60,7 @@
   height: 47px;
   font-size: 19px;
   border-width: 0px;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #6c618d, #c76262, #555ee0, #a143b4);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   border-radius: 50px;
@@ -92,6 +92,7 @@
   flex-direction: column;
 }
 
-.text-muted {
+.text-muted-signup {
   margin: auto;
+  color: antiquewhite;
 }

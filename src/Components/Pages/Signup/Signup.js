@@ -99,7 +99,9 @@ function Signup() {
               placeholder="Enter display name"
               onChange={(e) => setDisplayName(e.target.value)}
             />
-            <Form.Text className="text-muted">It must be unique!</Form.Text>
+            <Form.Text className="text-muted-signup">
+              It must be unique!
+            </Form.Text>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail" className="signup-formgroup">
@@ -109,7 +111,7 @@ function Signup() {
               placeholder="Enter email"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <Form.Text className="text-muted">
+            <Form.Text className="text-muted-signup">
               We'll never share your email with anyone else!
             </Form.Text>
           </Form.Group>
@@ -124,7 +126,7 @@ function Signup() {
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Form.Text className="text-muted">Make it strong!</Form.Text>
+            <Form.Text className="text-muted-signup">Make it strong!</Form.Text>
           </Form.Group>
 
           <Button type="submit" variant="primary" className="signup-button">
