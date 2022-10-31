@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import React, { useState, useEffect } from "react";
 import * as utilities from "../../../Utilities/FireStoreUtilities";
 import { getAuth, updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function Account() {
   const [displayName, setDisplayName] = useState("");
@@ -17,6 +18,7 @@ function Account() {
   const [password, setPassword] = useState();
 
   const auth = getAuth();
+  const navigate = useNavigate();
 
   //Get user account info
   useEffect(() => {

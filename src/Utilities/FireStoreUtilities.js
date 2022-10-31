@@ -264,7 +264,7 @@ export async function changeProfilePicture(_userId, _image) {
           photoURL: downloadURL,
         }).then(() => {
           changeDisplayPicURL(auth.currentUser.uid, downloadURL).then(() => {
-            window.location = "/Chat-App/account";
+            window.location = "bolgz.github.io/Chat-App/login";
           });
         });
       });
