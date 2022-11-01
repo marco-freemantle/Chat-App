@@ -62,9 +62,9 @@ function App() {
     return (
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Chat-App/signup" element={<Signup />} />
-        <Route path="/Chat-App/login" element={<Login />} />
-        <Route path="/Chat-App/account" element={<Account />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
     );
   } else {

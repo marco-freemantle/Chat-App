@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import * as utilities from "../../../Utilities/FireStoreUtilities";
 import { getAuth, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 
 function Account() {
   const [displayName, setDisplayName] = useState("");
@@ -13,6 +14,7 @@ function Account() {
   const [bio, setBio] = useState("");
   const [updatedBio, setUpdatedBio] = useState("");
   const [canSaveChanges, setCanSaveChanges] = useState(false);
+  const [profilePicURL, setProfilePicURL] = useState(null);
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -28,11 +30,20 @@ function Account() {
       setBio(user.bio);
       setUpdatedBio(user.bio);
       setUpdatedDisplayName(auth.currentUser.displayName);
+      setProfilePicURL(user.displayPicURL);
     });
 
     utilities.changeDisplayPicURL(
       auth.currentUser.uid,
       auth.currentUser.photoURL
+    );
+
+    //Setup document listener for profile picture changes
+    const unsub = onSnapshot(
+      doc(getFirestore(), "users", auth.currentUser.uid),
+      (doc) => {
+        setProfilePicURL(doc.data().displayPicURL);
+      }
     );
   }, []);
 
@@ -78,7 +89,7 @@ function Account() {
               src={
                 auth.currentUser.photoURL === null
                   ? require("../../../face.jpg")
-                  : auth.currentUser.photoURL
+                  : profilePicURL
               }
               alt={"profile pic"}
               className="account-profile-picture"

@@ -103,7 +103,7 @@ export async function deleteUser(_userId, email, password) {
     //Reauthenticated, delete user account
     deleteDoc(doc(getFirestore(), "users", _userId)).then(() => {
       user.delete().then(() => {
-        window.location = "/Chat-App/login";
+        window.location = "/";
       });
     });
   });
@@ -263,9 +263,7 @@ export async function changeProfilePicture(_userId, _image) {
         updateProfile(auth.currentUser, {
           photoURL: downloadURL,
         }).then(() => {
-          changeDisplayPicURL(auth.currentUser.uid, downloadURL).then(() => {
-            window.location = "bolgz.github.io/Chat-App/login";
-          });
+          changeDisplayPicURL(auth.currentUser.uid, downloadURL);
         });
       });
     }
