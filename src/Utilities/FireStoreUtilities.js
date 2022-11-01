@@ -103,7 +103,7 @@ export async function deleteUser(_userId, email, password) {
     //Reauthenticated, delete user account
     deleteDoc(doc(getFirestore(), "users", _userId)).then(() => {
       user.delete().then(() => {
-        window.location = "/";
+        window.location = "/Chat-App";
       });
     });
   });
